@@ -21,7 +21,7 @@ Well, it's not a 'by the book' to get data scraped from the web into Grafana, th
 Well...depends of course a bit on your environment/setup. But in general, it's more or less this (in this case assuming your HomeAssistant config file is `/home/ubuntu/haconfig/config.yml` and the bridge network where Prometheus is also connected is called `promgraf`):
 
 ```shell
-sudo docker run --name hascraper -v /home/ubuntu/haconfig/config.yml:/config/configuration.yml --net=promgraf max4711/hascraper:latest
+sudo docker run -d --name hascraper -v /home/ubuntu/haconfig/config.yml:/config/configuration.yaml --net=promgraf max4711/hascraper:latest
 ```
 
 You should then be able to configure Prometheus like this (see the [HomeAssistant documentation](https://www.home-assistant.io/integrations/prometheus/#full-example) for more details and configuration options):
