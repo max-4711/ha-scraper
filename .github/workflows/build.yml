@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install tar
-        run: apt-get install tar -y
+        run: sudo apt-get install tar -y
       - name: Prepare multiscraper
         run: mkdir multiscrape && curl https://codeload.github.com/danieldotnl/ha-multiscrape/tar.gz/master | \ tar --directory multiscrape -xz --strip=2 ha-multiscrape-master/custom_components/multiscrape
       - name: Set up QEMU
