@@ -15,3 +15,22 @@ Therefore this docker image is going to be useful, as it will run a HomeAssistan
 ## A bit obscure this solution, isn't it?
 
 Well, it's not a 'by the book' to get data scraped from the web into Grafana, that's for sure. But on the other hand, it's a convenient solution for me: Everything is already set up to display data from a HomeAssistant instance...a new HomeAssistant instance can be created with docker basically in no time. A 'real' scraping/crawling solution would be just an overkill in my case, while still causing effort for needing to configuring (or even coding) the crawler, setting up a database, getting the data into it, configuring Grafana to get the data from there, ...
+
+## You had me at 'obscure'! How do i use it?
+
+Well...depends of course a bit on your environment/setup. But in general, it's more or less this (in this case assuming your HomeAssistant config file is `/home/ubuntu/haconfig/config.yml` and the bridge network where Prometheus is also connected is called `promgraf`):
+
+```shell
+sudo docker run --name hascraper -v /home/ubuntu/haconfig/config.yml:/config/configuration.yml --net=promgraf max4711/hascraper:latest
+```
+
+You should then be able to configure Prometheus like this (see the [HomeAssistant documentation](https://www.home-assistant.io/integrations/prometheus/#full-example) for more details and configuration options):
+```yaml
+  - job_name: "hass"
+    scrape_interval: 60s
+    metrics_path: /api/prometheus
+
+    scheme: http
+    static_configs:
+      - targets: ['hascraper:8123']
+```

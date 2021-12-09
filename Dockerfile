@@ -1,4 +1,7 @@
 FROM homeassistant/home-assistant:latest
 
-WORKDIR /config/custom_components/multiscrape
-RUN curl https://codeload.github.com/danieldotnl/ha-multiscrape/tar.gz/master | \ tar -xz --strip=2 ha-multiscrape-master/custom_components/multiscrape
+WORKDIR /config/custom_components
+COPY multiscrape /config/custom_components
+
+WORKDIR /config/.storage
+ADD https://raw.githubusercontent.com/max-4711/ha-scraper/main/auth /config/.storage/auth

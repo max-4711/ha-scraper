@@ -11,6 +11,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare multiscraper
+        run: mkdir multiscrape && curl https://codeload.github.com/danieldotnl/ha-multiscrape/tar.gz/master | \ tar --directory multiscrape -xz --strip=2 ha-multiscrape-master/custom_components/multiscrape
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx

@@ -1,0 +1,81 @@
+{
+    "version": 1,
+    "key": "auth",
+    "data": {
+        "users": [
+            {
+                "id": "cfcb78e555c84a88b96f0742799a8050",
+                "group_ids": [
+                    "system-admin"
+                ],
+                "is_owner": false,
+                "is_active": true,
+                "name": "Supervisor",
+                "system_generated": true
+            },
+            {
+                "id": "edee05337cbf4e2195fa8b8073d7e2f0",
+                "group_ids": [
+                    "system-users"
+                ],
+                "is_owner": true,
+                "is_active": true,
+                "name": "dummyuser",
+                "system_generated": false
+            },
+            {
+                "id": "f368a5e091bd4e449383881427d37231",
+                "group_ids": [
+                    "system-admin"
+                ],
+                "is_owner": false,
+                "is_active": true,
+                "name": "Home Assistant Cast",
+                "system_generated": true
+            }
+        ],
+        "groups": [
+            {
+                "id": "system-admin",
+                "name": "Administrators"
+            },
+            {
+                "id": "system-users",
+                "name": "Users"
+            },
+            {
+                "id": "system-read-only",
+                "name": "Read Only"
+            }
+        ],
+        "credentials": [
+            {
+                "id": "63cac8268f2f478eaf15d44218a37619",
+                "user_id": "edee05337cbf4e2195fa8b8073d7e2f0",
+                "auth_provider_type": "homeassistant",
+                "auth_provider_id": null,
+                "data": {
+                    "username": "dummyuser"
+                }
+            }
+        ],
+        "refresh_tokens": [
+            {
+                "id": "1231889f060a40f49d595dc719ddd2a9",
+                "user_id": "edee05337cbf4e2195fa8b8073d7e2f0",
+                "client_id": null,
+                "client_name": "prometheus",
+                "client_icon": null,
+                "token_type": "long_lived_access_token",
+                "created_at": "2021-12-06T19:26:17.211788+00:00",
+                "access_token_expiration": 315360000.0,
+                "token": "e41995efd80080ec1680cf0a1a95a8cf2befd7116f912c243ea0f89fd5698e9385f4f5c0e44f28d3846de89378d80983c15faf8c4093de581120ef8a5d37d72f",
+                "jwt_key": "2de9f1d90e2e8c989b935b643b310142c498ee708f569f1aa6bbf0a9bbc7c10f824faac257067f028e3eb749504c121d470d53ee3e2255f15922f20b3eeb0ae8",
+                "last_used_at": "2021-12-06T19:26:17.212921+00:00",
+                "last_used_ip": null,
+                "credential_id": null,
+                "version": "2021.11.5"
+            }
+        ]
+    }
+}
