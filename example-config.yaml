@@ -1,0 +1,27 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: HA+Multiscrape
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Zurich
+
+multiscrape:
+  - resource: https://www.home-assistant.io
+    scan_interval: 3600
+    sensor:
+      - name: Latest version
+        select: ".current-version > h1:nth-child(1)"
+        value_template: '{{ (value.split(":")[1]) }}'
+      - name: Release date
+        select: ".release-date"
+    binary_sensor:
+      - name: Latest version == 2021.6.0
+        select: ".current-version > h1:nth-child(1)"
+        value_template: '{{ (value.split(":")[1]) | trim == "2021.6.0" }}'
+
+logger:
+  default: error
+
+prometheus:
+  namespace: hasscraper
