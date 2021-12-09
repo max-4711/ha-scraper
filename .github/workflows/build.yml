@@ -11,6 +11,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Prepare multiscraper
         run: mkdir multiscrape && curl https://codeload.github.com/danieldotnl/ha-multiscrape/tar.gz/master | /usr/bin/tar --directory multiscrape -xz --strip=2 ha-multiscrape-master/custom_components/multiscrape
       - name: Set up QEMU
@@ -28,6 +30,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
           platforms: linux/amd64,linux/arm64
           push: true
           tags: max4711/hascraper:latest
