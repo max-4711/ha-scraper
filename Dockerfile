@@ -7,7 +7,7 @@ WORKDIR /config/.storage
 COPY ./auth /config/.storage/auth
 
 WORKDIR /config
-COPY ./example-config.yml ./configuration.yaml
+COPY ./example-config.yaml ./configuration.yaml
 
 #DEBUG: This folder should now contain the actual custom integration
 RUN ls -la /config/custom_components/multiscrape
