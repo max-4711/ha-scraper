@@ -22,7 +22,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: [DEBUG] Show folder content
+      - name: (DEBUG) Show folder content
         run: ls -la
       - name: Build and push
         id: docker_build
