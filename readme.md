@@ -20,10 +20,10 @@ Well, it's not a solution 'by the book' for getting data scraped from the web in
 
 ## You had me at 'obscure'! How do i use it?
 
-Well...depends of course a bit on your environment/setup. But in general, it's more or less this (in this case assuming your HomeAssistant config file is `/home/ubuntu/haconfig/config.yml` and the bridge network where Prometheus is also connected is called `promgraf`):
+Well...depends of course a bit on your environment/setup. But in general, it's more or less this (in this case assuming your HomeAssistant config file is `/home/ubuntu/hascraper/configuration.yaml` and the bridge network where Prometheus is also connected is called `promgraf`):
 
 ```shell
-sudo docker run -d --name hascraper -v /home/ubuntu/haconfig/config.yml:/config/configuration.yaml --net=promgraf max4711/hascraper:latest
+sudo docker run -d --restart unless-stopped --name hascraper -v /home/ubuntu/hascraper/configuration.yaml:/config/configuration.yaml --net=promgraf max4711/hascraper:latest
 ```
 
 You should then be able to configure Prometheus like this (see the [HomeAssistant documentation](https://www.home-assistant.io/integrations/prometheus/#full-example) for more details and configuration options):
