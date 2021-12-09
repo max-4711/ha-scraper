@@ -1,5 +1,4 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: HA+Multiscrape
   # metric for Metric, imperial for Imperial
   unit_system: metric
@@ -24,4 +23,4 @@ logger:
   default: error
 
 prometheus:
-  namespace: hasscraper
+  namespace: hascraper
